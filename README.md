@@ -1,7 +1,7 @@
 # Repository: Setup-Kali-2016.1
 ### Author: Adam P. Schinder
-** Purpose: I really just needed to automate the initial setup of my machines. If ever it needs to be re-done or whatever, these scripts will be on short stand-by - ready to get me back in the game! This might work on other x64 Debian Linux Builds - No guarantees! Run this little guy as root - less sudo stuff to worry about...
-** NOTE: SOME ITEMS NEED SOME TYPING IN OF STUFF! READ THE DANG COMMENTS!
+#### Purpose: I really just needed to automate the initial setup of my machines. If ever it needs to be re-done or whatever, these scripts will be on short stand-by - ready to get me back in the game! This might work on other x64 Debian Linux Builds - No guarantees! Run this little guy as root - less sudo stuff to worry about...
+#### NOTE: SOME ITEMS NEED SOME TYPING IN OF STUFF! READ THE DANG COMMENTS!
 - date: 18 May 2016 - initial development  ... more like 19 May now...  it's really late...
 - date: 19 May 2016 - changed some of the install scripts.
 - date: 19 May 2016 - finalized the scripts to a four part install process.  Tested on VM. It works! Not sure about implications, but it's going on Github....
@@ -12,10 +12,10 @@ I found myself spending a lot of time with the initial setup of my machines. Esp
 
 Now, these scripts aren't anything incredible. Honestly, they are mostly just install automations. I use Kali as a my personal desktop environment on many of my computers... So I wanted it to have all of the nifty features a desktop should have... email client, office suites... etc.
 
-** WARNING!  You may not need every item in these scripts!
-** WARNING!  Read the lines and comment out the stuff you don't want!
-** NOTE: IE: You may or may not have a Brother MFC9340CDW printer.... 
-** NOTE: If not, don't bother with anything beyond setup script 1 and 2.
+#### WARNING!  You may not need every item in these scripts!
+#### WARNING!  Read the lines and comment out the stuff you don't want!
+#### NOTE: IE: You may or may not have a Brother MFC9340CDW printer.... 
+#### NOTE: If not, don't bother with anything beyond setup script 1 and 2.
 
 Some items that users of Kali may appreciate:
 
@@ -41,7 +41,7 @@ then type in :
 ### Let me know what you think!
 
 
-** WARNING! This software comes with no warranty! 
-** WARNING! This is purely "use at your own risk"
-** WARNING! I am not responsible for anything that happens to your system should you decide to run these!
+#### WARNING! This software comes with no warranty! 
+#### WARNING! This is purely "use at your own risk"
+#### WARNING! I am not responsible for anything that happens to your system should you decide to run these!
 
