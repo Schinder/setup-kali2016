@@ -1,17 +1,17 @@
 # repository: setup-kali2016
-# author: Adam P. Schinder
-# purpose: I really just needed to automate the initial setup of my machines. 
-#         If ever it needs to be re-done or whatever, these scripts will
-#         be on short stand-by - ready to get me back in the game!
-#         This might work on other x64 Debian Linux Builds - No guarantees!
-#         Run this little guy as root - less sudo stuff to worry about...
+ author: Adam P. Schinder
+ purpose: I really just needed to automate the initial setup of my machines. 
+         If ever it needs to be re-done or whatever, these scripts will
+         be on short stand-by - ready to get me back in the game!
+         This might work on other x64 Debian Linux Builds - No guarantees!
+         Run this little guy as root - less sudo stuff to worry about...
 ##########################################################################################
 # NOTE: SOME ITEMS NEED SOME TYPING IN OF STUFF! READ THE DANG COMMENTS!
 ##########################################################################################
-# date: 18 May 2016 - initial development  ... more like 19 May now...  it's really late...
-# date: 19 May 2016 - changed some of the install scripts.
-# date: 19 May 2016 - finalized the scripts to a four part install process.  Tested on VM. 
-#                     It works! Not sure about implications, but it's going on Github....
+ date: 18 May 2016 - initial development  ... more like 19 May now...  it's really late...
+ date: 19 May 2016 - changed some of the install scripts.
+ date: 19 May 2016 - finalized the scripts to a four part install process.  Tested on VM. 
+                     It works! Not sure about implications, but it's going on Github....
 
 
 These are my personal setup scripts for a new installation of Kali Linux 2016.1.
