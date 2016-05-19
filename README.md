@@ -1,4 +1,3 @@
-##########################################################################################
 # repository: setup-kali2016
 # author: Adam P. Schinder
 # purpose: I really just needed to automate the initial setup of my machines. 
@@ -13,7 +12,7 @@
 # date: 19 May 2016 - changed some of the install scripts.
 # date: 19 May 2016 - finalized the scripts to a four part install process.  Tested on VM. 
 #                     It works! Not sure about implications, but it's going on Github....
-##########################################################################################
+
 
 These are my personal setup scripts for a new installation of Kali Linux 2016.1.
 
