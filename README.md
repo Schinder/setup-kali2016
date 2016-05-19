@@ -25,6 +25,8 @@ Some items that users of Kali may appreciate:
 - 4. I don't know why Kali comes without Tor and the TorBrowser, but I have it in there...
 - 5. For quick image cropping and so forth - Gthumb (it's as suitable a replacement for irfanview as I could find...)
 - 6. Samba server is now good to go.  Please edit the smb.conf when prompted:
+
+
 > # comment out the printer stuff with ';'
 > # then type in :
 > [Public]
@@ -33,6 +35,8 @@ Some items that users of Kali may appreciate:
 >    browseable = yes
 >    guest ok = no
 >    valid users = root
+
+
 - 7. Services tor, postgres, and samba are ready to go at startup! (Cups too if you go beyond script 1 and 2...)
 - 8. If you happen to have a Brother Printer, this script ought to releive some of the stress you may have had with broken dependencies. I know when I ran their installer, it would flunk my system and I'd have to revert or start over... Now, I have that installer script commented out if you want to use it. However, I only have my cups wrapper and lpd installer on by default. This means if you happen to have a Brother MFC9340CDW - you are good to go. Others may need to tweak this a bit.
    
