@@ -91,13 +91,14 @@ apt-get install pgadmin3* -y
 # get the cool fonts... Not sure if this worked or not...
 apt-get install ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu* ttf-xfree86-nonfree -y
 # get these updates to php so that laravel works correctly...
-apt-get install php7.0 php7.0-mysql php7.0-zip php7.0-bz2 php7.0-cli php7.0-sqlite3 php7.0-xml php7.0-phpdbg php7.0-pgsql php7.0-bcmath php7.0-cli php7.0-curl php7.0-dev php7.0-json -y
+apt-get install php7.0 php7.0-mysql php7.0-sqlite3 php7.0-xml php7.0-mbstring php7.0-phpdbg php7.0-pgsql php7.0-bcmath php7.0-cli php7.0-curl php7.0-dev php7.0-json php7.0-zip php7.0-bz2 libapache2-mod-php7.0 -y
 # get composer to manage all of those crazy dependencies php projects tend to have these days.  Yay package managers......... :/
 apt-get install composer -y
 # get all of those lovely mysql database tools.  Nice.
 apt-get install mysql-client mysql-common mysql-proxy mysql-sandbox mysql-server mysqltcl mysqltuner mysql-utilities mysql-workbench mysql-workbench-data -y
 # get nodejs for javascript server functionality
 apt-get install nodejs nodejs-dev nodejs-dbg -y
+ln -s /usr/bin/nodejs /usr/bin/node
 # get the npm manager.... Yay package managers........ :/
 apt-get install npm -y
 # get this to easily enable or disable system services.  No different than up update-rc.d - I think...  not sure there...
