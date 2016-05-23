@@ -6,6 +6,10 @@ echo "         Kali2016 box. If ever it needs to be re-done or whatever, this sc
 echo "         be on short stand-by, ready to get me back in the game! "
 echo "         This might work on other x64 Debian Linux Builds - No guarantees! "
 echo "         Run this little guy as root - less sudo stuff to worry about... "
+echo " !!!!!               --------------WARNING--------------                         !!!!"
+echo " !!!!! Depending on your internet speed, this process may take an hour or longer !!!!"
+echo " !!!!! Also, change your lock screen settings off for this. Turn it on afterwards!!!!"
+echo " !!!!!             --------------END WARNING--------------                       !!!!"
 ##########################################################################################
 # NOTE: SOME ITEMS NEED SOME TYPING IN OF STUFF! READ THE DANG COMMENTS!
 ##########################################################################################
@@ -13,6 +17,15 @@ echo "date: 18 May 2016 - initial commit  ... more like 19 May now...  it's real
 echo "date: 19 May 2016 - changed some of the install scripts."
 echo "date: 19 May 2016 - finalized the scripts to a four part install process.  Tested on VM. "
 echo "                    it works! Not sure if it's a good idea, but it's going on Github...."
+echo "date: 23 May 2016 - Removed creation of et, wpp, and wps .desktop files"
+echo "                    Paired down the process to three reboots"
+echo "                    Added a .desktop creator for gnat-gps"
+echo "                    Re-install added for full version of gdb (GNAT-GPS makes you use gdb-minimal..."
+echo "                    Changed the script to use the updated linux headers (4.5)"
+echo "                    Added the Internet Speed and lock screen notices"
+echo "                    Fixed the clamav freshclam error"
+echo "                    Added -y to the install scripts for script 2 and 3"
+echo "                    Fixed the tor-browser setup functions (added chown -R root:root"
 echo "#####################################################################################" 
 passwd
 apt-get update
@@ -26,7 +39,7 @@ apt-get install git git-gui git-doc gitk mercurial -y
 # get the go-to mail client
 apt-get install icedove calendar-google-provider -y
 # get the old-school antivirus program...
-apt-get install clamav clamtk clamav-docs clamtk-nautilus clamtk-gnome freshclam -y
+apt-get install clamav clamtk clamav-docs clamtk-nautilus clamtk-gnome -y
 # get virtualbox and extension-pack
 apt-get install virtualbox* virtualbox-ext-pack virtualbox-dkms virtualbox-qt vde2 virtualbox-guest-additions-iso -y
 # get this so you can read the perl formatted man pages...
@@ -52,11 +65,23 @@ apt-get install samba -y
 # I can't remember why I needed this...
 apt-get install winbind -y
 # get these so you can develop in assembly and so forth...
-apt-get install build-essential linux-headers-4.4.0-kali1-amd64 -y
+apt-get install build-essential linux-headers-4.5.0-kali1-amd64 -y
 # get this for your c program development
 apt-get install monodevelop monodevelop-database monodevelop-nunit monodevelop-versioncontrol -y
 # get these to develop programs in ada
 apt-get install gnat-gps gnat-gps-doc gprbuild gpr gcc -y
+touch /usr/share/applications/gnat-gps.desktop
+echo "[Desktop Entry]" >> /usr/share/applications/gnat-gps.desktop
+echo "Name=GNAT-GPS" >> /usr/share/applications/gnat-gps.desktop
+echo "Comment=GNAT Ada Programming Studio" >> /usr/share/applications/gnat-gps.desktop
+echo "Exec=gnat-gps %f" >> /usr/share/applications/gnat-gps.desktop
+echo "Icon=/usr/share/gps/icons/48px/gps_48.png" >> /usr/share/applications/gnat-gps.desktop
+echo "Terminal=false" >> /usr/share/applications/gnat-gps.desktop
+echo "Type=Application" >> /usr/share/applications/gnat-gps.desktop
+echo "MimeType=application/programming" >> /usr/share/applications/gnat-gps.desktop
+echo "Categories=Programming;GTK;Utility;" >> /usr/share/applications/gnat-gps.desktop
+echo "Keywords=programming;ada;editor;" >> /usr/share/applications/gnat-gps.desktop
+echo "InitialPreference=6" >> /usr/share/applications/gnat-gps.desktop
 # get the arduino programming suite
 apt-get install arduino arduino-mk avrdude-doc gcc-doc libjna-java-doc -y
 # get netbeans for Java Development
@@ -77,12 +102,12 @@ apt-get install nodejs nodejs-dev nodejs-dbg -y
 apt-get install npm -y
 # get this to easily enable or disable system services.  No different than up update-rc.d - I think...  not sure there...
 apt-get install chkconfig -y
+# re-install gdb and gdb-doc... gnat-gps replaces the full version with gdb-minimal...
+apt-get install gdb gdb-doc -y
 echo "###########################################################"
 echo "Whew! installs are complete. Let's get some things setup!"
+echo "Start these services at start-up"
 echo "###########################################################"
-##################################
-# Start these services at start-up
-##################################
 update-rc.d postgresql enable
 update-rc.d tor enable
 service postgresql start
@@ -106,40 +131,40 @@ service tor start
 #cd /root/googledrive/
 #drive init
 #drive pull -ignore-name-clashes -verbose
-######################################################
-# Setup Kingsoft WPS Office - Best Office Product IMHO
-######################################################
+echo "###########################################################"
+echo "Setup Kingsoft WPS Office - Best Office Product IMHO"
+echo "###########################################################"
 cd /root/Downloads
 wget http://kdl.cc.ksosoft.com/wps-community/download/a20/wps-office_10.1.0.5503~a20p2_amd64.deb
 dpkg -i wps-office_10.1.0.5503~a20p2_amd64.deb
-#cd /usr/share/applications/
-#gedit et.desktop &
-#gedit wps.desktop &
-#gedit wpp.desktop &
-#cd /root/
-#echo "export PATH=\$PATH:/opt/kingsoft-wps" >> .bashrc
+cd /usr/share/applications/
+cd /root/
+echo "export PATH=\$PATH:/opt/kingsoft-wps" >> .bashrc
 #################################################
 # If you want Microsoft Visual Studio Code...
 #################################################
 #visit https://go.microsoft.com/fwlink/?LinkID=760868
 #dpkg -i vscode-amd64.deb 
-#################################################
-# Setup Sublime Text Editor
-#################################################
+echo "###########################################################"
+echo "Setup Sublime Text Editor"
+echo "###########################################################"
 cd /root/Downloads
 wget https://download.sublimetext.com/sublime-text_build-3114_amd64.deb
 dpkg -i sublime-text_build-3114_amd64.deb 
-#################################################
-# Setup Tor Browser
-#################################################
+echo "###########################################################"
+echo "Setup Tor Browser"
+echo "Comment out the cannot run as root block for tor!"
+echo "###########################################################"
 cd /root/Downloads
 wget https://www.torproject.org/dist/torbrowser/5.5.5/tor-browser-linux64-5.5.5_en-US.tar.xz
 tar xf tor-browser-linux64-5.5.5_en-US.tar.xz
-mv tor-browser_en-US tor-browser
-mv tor-browser /opt/
-gedit /opt/tor-browser/Browser/start-tor-browser
-gedit /usr/share/applications/tor-browser.desktop
-ln -s /opt/tor-browser/Browser/start-tor-browser /usr/bin/ 
+mv tor-browser_en-US /opt/
+gedit /opt/tor-browser_en-US/Browser/start-tor-browser
+cd /opt/
+chown -R root:root tor-browser_en-US
+./start-tor-browser.desktop
+ln -s /opt/tor-browser_en-US/Browser/start-tor-browser /usr/bin/ 
+cp /opt/tor-browser_en-US/start-tor-browser.desktop /usr/share/applications/
 #######################################################
 # Setup the CAC-Card Reader
 # You will still need to add the packages in firefox...
@@ -155,17 +180,17 @@ ln -s /opt/tor-browser/Browser/start-tor-browser /usr/bin/
 #cd cac-card-setup/
 #cd cackey/
 #dpkg -i cackey_0.7.5-1_amd64.deb 
-#######################################################
-# Configure your samba server stuff (filesharing)
-#######################################################
+echo "###########################################################"
+echo "Configure your samba server stuff (filesharing)"
+echo "###########################################################"
 smbpasswd -a root
 gedit /etc/samba/smb.conf
 update-rc.d samba defaults 
 update-rc.d smbd enable
 update-rc.d nmbd enable
 service smbd restart
-#testparm
-#systemctl start smbd
+testparm
+systemctl start smbd
 #######################################################
 # Leftover tools...
 #######################################################
@@ -179,6 +204,16 @@ service smbd restart
 #######################################################
 #find / -type f -name *grub* -exec file '{}' \;
 #find / -type f -name *grub* -exec ls -l '{}' \;
+apt-get update
+apt-get upgrade -y
+apt-get autoremove -y
+apt-get -f install
+apt-get autoclean
+echo " ###################################################"
+echo " #   Take a second to setup your antivirus..."
+echo " ###################################################"
+freshclam
+clamtk
 echo "###########################################################"
 echo "All done for step one.  Reboot now!"
 echo "###########################################################"
