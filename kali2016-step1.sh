@@ -26,6 +26,7 @@ echo "                    Added the Internet Speed and lock screen notices"
 echo "                    Fixed the clamav freshclam error"
 echo "                    Added -y to the install scripts for script 2 and 3"
 echo "                    Fixed the tor-browser setup functions (added chown -R root:root"
+echo "                    Removed composer and all php related installs - moved to a seperate script for laravel"
 echo "#####################################################################################" 
 passwd
 apt-get update
@@ -35,41 +36,41 @@ dpkg --add-architecture i386  # <---- needed for the printer to work
 # get google drive setup ** COMMENTED OUT FOR NOW ** 
 # apt-get install golang
 # get some version control tools
-apt-get install git git-gui git-doc gitk mercurial -y
+apt-get install git git-gui git-doc gitk mercurial -y -qq
 # get the go-to mail client
-apt-get install icedove calendar-google-provider -y
+apt-get install icedove calendar-google-provider -y -qq
 # get the old-school antivirus program...
-apt-get install clamav clamtk clamav-docs clamtk-nautilus clamtk-gnome -y
+apt-get install clamav clamtk clamav-docs clamtk-nautilus clamtk-gnome -y -qq
 # get virtualbox and extension-pack
-apt-get install virtualbox* virtualbox-ext-pack virtualbox-dkms virtualbox-qt vde2 virtualbox-guest-additions-iso -y
+apt-get install virtualbox* virtualbox-ext-pack virtualbox-dkms virtualbox-qt vde2 virtualbox-guest-additions-iso -y -qq
 # get this so you can read the perl formatted man pages...
-apt-get install perl-doc -y
+apt-get install perl-doc -y -qq
 # get the ubiquitous disk burning client
-apt-get install brasero -y
+apt-get install brasero -y -qq
 # get the good ole' torrent client
-apt-get install deluge -y
+apt-get install deluge -y -qq
 # get these nifty hex editors
-apt-get install bless wxhexeditor dhex -y
+apt-get install bless wxhexeditor dhex -y -qq
 # get these so you can use a smart-card with the operating system
-apt-get install pcsc-tools pcscd -y
+apt-get install pcsc-tools pcscd -y -qq
 # get the ubiquitous anonymity service and browser...  *** DO NOT INSTALL the torbrowser-launcher - it just doesn't work.  Download off the website and extract to /opt/torbrowser
-apt-get install tor tor-arm tor-dbg torsocks torchat -y
+apt-get install tor tor-arm tor-dbg torsocks torchat -y -qq
 # get gimp and extraz...
-apt-get install gimp gimp-help-en gimp-data-extras -y
+apt-get install gimp gimp-help-en gimp-data-extras -y -qq
 # get a better image viewer (one that can crop and edit).  Not as good as irfanview in windows, but it'll do.
-apt-get install gthumb -y
+apt-get install gthumb -y -qq
 # get the backup utility burp and related tools
-apt-get install burp librsync-dev libz3-dev libssl-dev libncurses5-dev make g++ uthash-dev ncurses-doc -y
+apt-get install burp librsync-dev libz3-dev libssl-dev libncurses5-dev make g++ uthash-dev ncurses-doc -y -qq
 # get the samba windows file transfer (smb) client / server
-apt-get install samba -y
+apt-get install samba -y -qq
 # I can't remember why I needed this...
-apt-get install winbind -y
+apt-get install winbind -y -qq
 # get these so you can develop in assembly and so forth...
-apt-get install build-essential linux-headers-4.5.0-kali1-amd64 -y
+apt-get install build-essential linux-headers-4.5.0-kali1-amd64 -y -qq
 # get this for your c program development
-apt-get install monodevelop monodevelop-database monodevelop-nunit monodevelop-versioncontrol -y
+apt-get install monodevelop monodevelop-database monodevelop-nunit monodevelop-versioncontrol -y -qq
 # get these to develop programs in ada
-apt-get install gnat-gps gnat-gps-doc gprbuild gpr gcc -y
+apt-get install gnat-gps gnat-gps-doc gprbuild gpr gcc -y -qq
 touch /usr/share/applications/gnat-gps.desktop
 echo "[Desktop Entry]" >> /usr/share/applications/gnat-gps.desktop
 echo "Name=GNAT-GPS" >> /usr/share/applications/gnat-gps.desktop
@@ -83,28 +84,28 @@ echo "Categories=Programming;GTK;Utility;" >> /usr/share/applications/gnat-gps.d
 echo "Keywords=programming;ada;editor;" >> /usr/share/applications/gnat-gps.desktop
 echo "InitialPreference=6" >> /usr/share/applications/gnat-gps.desktop
 # get the arduino programming suite
-apt-get install arduino arduino-mk avrdude-doc gcc-doc libjna-java-doc -y
+apt-get install arduino arduino-mk avrdude-doc gcc-doc libjna-java-doc -y -qq
 # get netbeans for Java Development
-apt-get install netbeans -y
+apt-get install netbeans -y -qq
 # get the postgres database graphical utility
-apt-get install pgadmin3* -y
+apt-get install pgadmin3* -y -qq
 # get the cool fonts... Not sure if this worked or not...
-apt-get install ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu* ttf-xfree86-nonfree -y
-# get these updates to php so that laravel works correctly...
-apt-get install php7.0 php7.0-mysql php7.0-sqlite3 php7.0-xml php7.0-mbstring php7.0-phpdbg php7.0-pgsql php7.0-bcmath php7.0-cli php7.0-curl php7.0-dev php7.0-json php7.0-zip php7.0-bz2 libapache2-mod-php7.0 -y
-# get composer to manage all of those crazy dependencies php projects tend to have these days.  Yay package managers......... :/
-apt-get install composer -y
+apt-get install ttf-mscorefonts-installer ttf-bitstream-vera ttf-dejavu* ttf-xfree86-nonfree -y -qq
+# *** wrote a seperate laravel install script ***
+# *** apt-get install php7.0 php7.0-mysql php7.0-sqlite3 php7.0-xml php7.0-mbstring php7.0-phpdbg php7.0-pgsql php7.0-bcmath php7.0-cli php7.0-curl php7.0-dev php7.0-json php7.0-zip php7.0-bz2 libapache2-mod-php7.0 -y
+# *** package maintainer's version is old ***
+# *** apt-get install composer -y         ***
 # get all of those lovely mysql database tools.  Nice.
-apt-get install mysql-client mysql-common mysql-proxy mysql-sandbox mysql-server mysqltcl mysqltuner mysql-utilities mysql-workbench mysql-workbench-data -y
+apt-get install mysql-client mysql-common mysql-proxy mysql-sandbox mysql-server mysqltcl mysqltuner mysql-utilities mysql-workbench mysql-workbench-data -y -qq
 # get nodejs for javascript server functionality
-apt-get install nodejs nodejs-dev nodejs-dbg -y
+apt-get install nodejs nodejs-dev nodejs-dbg -y -qq
 ln -s /usr/bin/nodejs /usr/bin/node
 # get the npm manager.... Yay package managers........ :/
-apt-get install npm -y
+apt-get install npm -y -qq
 # get this to easily enable or disable system services.  No different than up update-rc.d - I think...  not sure there...
-apt-get install chkconfig -y
+apt-get install chkconfig -y -qq
 # re-install gdb and gdb-doc... gnat-gps replaces the full version with gdb-minimal...
-apt-get install gdb gdb-doc -y
+apt-get install gdb gdb-doc -y -qq
 echo "###########################################################"
 echo "Whew! installs are complete. Let's get some things setup!"
 echo "Start these services at start-up"
@@ -206,9 +207,9 @@ systemctl start smbd
 #find / -type f -name *grub* -exec file '{}' \;
 #find / -type f -name *grub* -exec ls -l '{}' \;
 apt-get update
-apt-get upgrade -y
-apt-get autoremove -y
-apt-get -f install
+apt-get upgrade -y -qq
+apt-get autoremove -y -qq
+apt-get -f install -y -qq
 apt-get autoclean
 echo " ###################################################"
 echo " #   Take a second to setup your antivirus..."
